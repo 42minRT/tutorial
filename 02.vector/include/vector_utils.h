@@ -6,9 +6,9 @@
 # include <stdio.h>
 # include "structures.h"
 
-t_vec3      create_vec3(double x, double y, double z);
-t_point3    create_point3(double x, double y, double z);
-t_point3    create_color3(double r, double g, double b);
+t_vec3      vec3(double x, double y, double z);
+t_point3    point3(double x, double y, double z);
+t_point3    color3(double r, double g, double b);
 void        vset(t_vec3 *vec, double x, double y, double z);
 double      vlength2(t_vec3 vec);
 double      vlength(t_vec3 vec);
