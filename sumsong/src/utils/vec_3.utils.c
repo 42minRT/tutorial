@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "../../include/utils.h"
 
 //벡터3 생성자
 t_vec3      vec3(double x, double y, double z)
