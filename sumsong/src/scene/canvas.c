@@ -1,5 +1,6 @@
 #include "../../include/scene.h"
 
+// canvas 생성자 함수
 t_canvas	canvas(int  width, int height)
 {
 	t_canvas canvas;

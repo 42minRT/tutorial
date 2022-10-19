@@ -1,5 +1,6 @@
 #include "../../include/scene.h"
 
+// 카메라 생성자 함수
 t_camera	camera(t_canvas *canvas, t_point3 orig)
 {
 	t_camera	cam;
