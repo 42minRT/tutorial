@@ -88,7 +88,7 @@ struct s_light
 
 struct s_scene
 {
-    t_canvas    canvas;
+    t_canvas        canvas;
     t_camera        camera;
     t_object        *world;
     t_object        *light;
