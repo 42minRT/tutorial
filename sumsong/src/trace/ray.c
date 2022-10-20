@@ -44,7 +44,8 @@ t_color3	ray_color(t_ray *ray, t_sphere *sphere)
 	t_color3	sky;
 	t_vec3		n;
 
-	// t는 광선이 구에 닿기 위해 ray.dir에 곱해줄 스칼라 계수
+	// t는 광선이 구에 닿을 때 ray.dir에 곱해줄 스칼라 계수 (광선과 교점 사이의 거리)
+	// 광선이 구에 안 닿을 때는 -1.0 반환 -> else
 	t = hit_sphere(sphere, ray);
 	// 광선이 구에 적중하면 (광선과 구가 교점이 있고, 교점이 카메라 앞쪽이라면!)
 	if (t > 0.0)
