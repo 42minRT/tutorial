@@ -52,7 +52,7 @@ t_color3	ray_color(t_scene *scene)
 	sky_blue = color3(0.5, 0.7, 1.0);
 	scene->rec = record_init();
 	if (hit(scene->world, &scene->ray, &scene->rec))
-		return (phong_lightin(scene));
+		return (phong_lighting(scene));
 	t = 0.5 * (scene->ray.dir.y + 1.0); 
 	return (vplus(vmult(white, 1.0 - t), vmult(sky_blue, t)));
 }
