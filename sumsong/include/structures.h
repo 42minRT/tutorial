@@ -20,6 +20,8 @@ typedef int				t_bool;
 # define FALSE 0
 # define TRUE 1
 
+typedef struct s_hit_record t_hit_record;
+
 struct	s_vec3
 {
 	double x;
@@ -56,6 +58,16 @@ struct	s_sphere
 	t_point3	center; // 구 중심
 	double		radius; // 구 반지름
 	double		radius2; // 구 반지름 제곱
+};
+
+struct s_hit_record
+{
+	t_point3	p; // 교점의 좌표
+	t_vec3		normal; // 교점에서의 법선
+	double		tmin;
+	double		tmax;
+	double		t; // 광원과 교점 사이의 거리
+	t_bool		front_face;
 };
 
 #endif
