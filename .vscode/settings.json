@@ -3,6 +3,9 @@
         "*.js": "javascriptreact",
         "scene.h": "c",
         "stdio.h": "c",
-        "trace.h": "c"
+        "trace.h": "c",
+        "print.h": "c",
+        "utils.h": "c",
+        "structures.h": "c"
     }
 }
