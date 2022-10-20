@@ -25,7 +25,7 @@ t_color3	point_light_get(t_scene *scene, t_light *light)
 	diffuse = vmult(light->light_color, kd);
 	view_dir = vunit(vmult(scene->ray.dir, -1));
 	reflect_dir = reflect(vmult(light_dir, -1), scene->rec.normal);
-	ksn = 64;
+	ksn = 32;
 	ks = 0.5;
 	spec = pow(fmax(vdot(view_dir, reflect_dir), 0.0), ksn);
 	specular = vmult(vmult(light->light_color, ks), spec);
