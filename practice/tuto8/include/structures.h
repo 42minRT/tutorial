@@ -20,6 +20,7 @@ typedef int t_bool;
 # define FALSE 0
 # define TRUE 1
 # define EPSILON 1e-6 //0.000001
+# define LUMEN 3 // 장면의 밝기를 조절
 
 typedef int t_object_type;
 # define SP 0
