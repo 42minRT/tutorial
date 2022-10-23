@@ -18,11 +18,12 @@ t_scene *scene_init(void)
         return (NULL);
     scene->canvas = canvas(400, 300);
     scene->camera = camera(&scene->canvas, point3(0, 0, 0));
-    world = object(SP, sphere(point3(-2, 0, -3), 3), color3(0.5, 0, 0));
+    world = object(SP, sphere(point3(-2, 0, -5), 2), color3(0.5, 0, 0));
     object_append(&world, object(SP, sphere(point3(2, 0, -5), 2), color3(0, 0.5, 0)));
-    object_append(&world, object(SP, sphere(point3(0, -1000, 0), 990), color3(1, 1, 1)));
+    object_append(&world, object(SP, sphere(point3(0, -1000, 0), 995), color3(0.4, 0.2, 0.1)));
+    object_append(&world, object(TRANGLE, trangle(point3(-2, 0, -1), point3(2, 1, -1), point3(1, 2, -1)), color3(1, 1, 1)));
     scene->world = world;
-    lights = object(LIGHT_POINT, light_point(point3(0, 5, 0), color3(1, 1, 1), 0.5), color3(0, 0, 0)); // 더미 albedo
+    lights = object(LIGHT_POINT, light_point(point3(0, 25, 0), color3(1, 1, 1), 0.5), color3(0, 0, 0));
     scene->light = lights;
     ka = 0.1;
     scene->ambient = vmult(color3(1, 1, 1), ka);
