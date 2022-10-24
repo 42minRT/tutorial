@@ -36,25 +36,30 @@ t_ray		ray_primary(t_camera *cam, double u, double v)
 	return (ray);
 }
 
+t_hit_record	record_init(void)
+{
+	t_hit_record	record;
+
+	record.tmin = EPSILON;
+	record.tmax = INFINITY;
+	return (record);
+}
+
 // 광선이 최종적으로 얻게된 픽셀의 색상 값을 리턴.
-t_color3	ray_color(t_ray *ray, t_object *world)
+t_color3	ray_color(t_scene *scene)
 {
 	double			t;
 	t_color3		white;
 	t_color3		sky;
 	t_vec3			n;
-	t_hit_record	rec;
 
-	rec.tmin = 0;
-	rec.tmax = INFINITY;
-
-	if (hit(world, ray, &rec))
-		return (vmult(vplus(rec.normal, color3(1, 1, 1)), 0.5));
-		// 정규화되어 [-1, 1] 범위이므로 +1로 [0, 2]로 만들고 0.5곱으로 [0, 1] 범위 계수로 변환
+	scene->rec = record_init();
+	if (hit(scene->world, &(scene->ray), &(scene->rec)))
+		return (phong_lighting(scene));
 	else
 	{
 		// ray의 방향벡터의 y 값을 기준으로 그라데이션을 주기 위한 계수(스칼라) t
-		t = 0.5 * (ray->dir.y + 1.0);
+		t = 0.5 * (scene->ray.dir.y + 1.0);
 		// y가 양수일 때 0.5 ~ 1, 0일때 0.5, 음수일 때 0 ~ 0.5
 		white = color3(1, 1, 1);
 		sky = color3(0.5, 0.7, 1.0);

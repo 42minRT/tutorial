@@ -2,17 +2,19 @@
 #include "../../../include/utils.h"
 #include "../../../include/trace.h"
 
-t_bool	hit_sphere(t_sphere *sp, t_ray *ray, t_hit_record *rec)
+t_bool	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 {
-	t_vec3	oc; // 방향벡터로 나타낸 구의 중심.
+	t_sphere	*sp;
+	t_vec3		oc; // 방향벡터로 나타낸 구의 중심.
 	//a, b, c는 각각 t에 관한 2차 방정식의 계수
-	double	a;
-	double	half_b;
-	double	c;
-	double	discriminant; // 판별식
-	double	sqrtd; // 판별식에 루트 씌운 식
-	double	root; // 근
+	double		a;
+	double		half_b;
+	double		c;
+	double		discriminant; // 판별식
+	double		sqrtd; // 판별식에 루트 씌운 식
+	double		root; // 근
 
+	sp = sp_obj->element;
 	// oc = O - C = 광원 - 구의 중심 벡터 = sp.center->광원 방향 벡터
 	oc = vminus(ray->orig, sp->center);
 
@@ -54,5 +56,6 @@ t_bool	hit_sphere(t_sphere *sp, t_ray *ray, t_hit_record *rec)
 	rec->p = ray_at(ray, root); // 교점
 	rec->normal = vdivide(vminus(rec->p, sp->center), sp->radius); // 정규화 법선
 	set_face_normal(ray, rec); // rec의 법선벡터와 광선의 방향벡터를 비교해서 앞면인지 뒷면인지 t_bool 값으로 저장
+	rec->albedo = sp_obj->albedo;
 	return (TRUE);
 }
