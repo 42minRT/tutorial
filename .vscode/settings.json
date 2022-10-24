@@ -1,0 +1,18 @@
+{
+	"files.associations": {
+		"stdio.h": "c",
+		"trace.h": "c",
+		"utils.h": "c",
+		"structures.h": "c",
+		"print.h": "c",
+		"scene.h": "c",
+		"__hash_table": "c",
+		"__string": "c",
+		"array": "c",
+		"bitset": "c",
+		"memory": "c",
+		"optional": "c",
+		"string_view": "c",
+		"tuple": "c"
+	}
+}
