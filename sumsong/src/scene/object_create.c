@@ -14,6 +14,19 @@ t_object	*object(t_object_type type, void *element, t_color3 albedo)
 	return (new);
 }
 
+// 광원 생성자 함수
+t_light		*light_point(t_point3 light_origin, t_color3 light_color, double bright_ratio)
+{
+	t_light *light;
+
+	if(!(light = (t_light *)malloc(sizeof(t_light))))
+		return (NULL);
+	light->origin = light_origin;
+	light->light_color = light_color;
+	light->bright_ratio = bright_ratio;
+	return (light);
+}
+
 // 구 생성자 함수
 t_sphere	*sphere(t_point3 center, double radius)
 {
@@ -27,15 +40,15 @@ t_sphere	*sphere(t_point3 center, double radius)
 	return (sp);
 }
 
-// 광원 생성자 함수
-t_light		*light_point(t_point3 light_origin, t_color3 light_color, double bright_ratio)
+// 삼각형 생성자 함수
+t_triangle	*triangle(t_point3 dot1, t_point3 dot2, t_point3 dot3)
 {
-	t_light *light;
+	t_triangle	*tri;
 
-	if(!(light = (t_light *)malloc(sizeof(t_light))))
+	if ((tri = malloc(sizeof(t_triangle))) == NULL)
 		return (NULL);
-	light->origin = light_origin;
-	light->light_color = light_color;
-	light->bright_ratio = bright_ratio;
-	return (light);
+	tri->dot1 = dot1;
+	tri->dot2 = dot2;
+	tri->dot3 = dot3;
+	return (tri);
 }

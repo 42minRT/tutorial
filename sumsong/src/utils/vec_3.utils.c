@@ -1,6 +1,6 @@
 #include "../../include/utils.h"
 
-//벡터3 생성자
+// 벡터3 생성자
 t_vec3      vec3(double x, double y, double z)
 {
     t_vec3 vec;
@@ -11,7 +11,7 @@ t_vec3      vec3(double x, double y, double z)
     return (vec);
 }
 
-//포인트3 생성자
+// 포인트3 생성자
 t_point3    point3(double x, double y, double z)
 {
     t_point3 point;
@@ -22,7 +22,7 @@ t_point3    point3(double x, double y, double z)
     return (point);
 }
 
-//색상3 생성자
+// 색상3 생성자
 t_point3    color3(double r, double g, double b)
 {
     t_color3 color;
@@ -123,14 +123,14 @@ double      vdot(t_vec3 vec, t_vec3 vec2)
 }
 
 // 벡터 외적
-t_vec3      vcross(t_vec3 vec, t_vec3 vec2)
+t_vec3		vcross(t_vec3 vec, t_vec3 vec2)
 {
-    t_vec3 new;
+	t_vec3 new;
 
-    new.x = vec.y * vec2.z - vec.z * vec2.y;
-    new.y = vec.z * vec2.x - vec.x * vec2.z;
-    new.z = vec.x * vec2.y - vec.y * vec2.x;
-    return (new);
+	new.x = vec.y * vec2.z - vec.z * vec2.y;
+	new.y = vec.z * vec2.x - vec.x * vec2.z;
+	new.z = vec.x * vec2.y - vec.y * vec2.x;
+	return (new);
 }
 
 // 단위 벡터

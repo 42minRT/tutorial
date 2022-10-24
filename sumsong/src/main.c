@@ -17,9 +17,10 @@ t_scene	*scene_init(void)
 		return (NULL);
 	scene->canvas = canvas(400, 300);
 	scene->camera = camera(&scene->canvas, point3(0, 0, 0));
-	world = object(SP, sphere(point3(-2, 0, -5), 2), color3(0.5, 0, 0)); // world 에 구1 추가
-	oadd(&world, object(SP, sphere(point3(0, -1000, 0), 995), color3(1, 1, 1))); // world 에 구3 추가
+	world = object(SP, sphere(point3(0, -1000, 0), 995), color3(0.5, 0, 0.5)); // world 에 구3 추가
+	oadd(&world, object(SP, sphere(point3(-2, 0, -5), 2), color3(0.5, 0, 0))); // world 에 구1 추가
 	oadd(&world, object(SP, sphere(point3(2, 0, -5), 2), color3(0, 0.5, 0))); // world 에 구2 추가
+	oadd(&world, object(TR, triangle(point3(-2, 0, -3), point3(2, 1, -3), point3(1, 1, -1)), color3(0, 0, 0.5)));
 	scene->world = world;
 	lights = object(LIGHT_POINT, light_point(point3(0, 20, 0), color3(1, 1, 1), 0.5), color3(0, 0, 0)); // 더미 albedo
 	scene->light = lights;
@@ -53,7 +54,6 @@ int	main(void)
 			// ray from camera origin to pixel (u, v)
 			scene->ray = ray_primary(&scene->camera, u, v);
 			pixel_color = ray_color(scene);
-			printf("here\n");
 			write_color(pixel_color);
 			++i;
 		}
